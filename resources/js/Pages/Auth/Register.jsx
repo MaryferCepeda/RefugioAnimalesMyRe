@@ -1,1 +1,2 @@
 
+Eliminar archivo Register.jsx
