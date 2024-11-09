@@ -1,0 +1,175 @@
+:root {
+    --clr-dark-900: #1c1109;
+    --clr-dark-800: #815839;
+    --clr-dark-700: #422a19;
+    --clr-primary: #ff6b00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    min-height: 100dvh;
+    background-color: var(--clr-dark-800);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+section {
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--clr-dark-900);
+    border-radius: 0.5rem;
+}
+
+header {
+    height: 300px;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    padding: 1rem;
+}
+
+footer input,
+footer button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    border-radius: 0.5vmin;
+    margin-top: 0.5rem;
+}
+
+footer input {
+    background-color: var(--clr-dark-700);
+}
+
+footer input::placeholder {
+    color: #ccc;
+}
+
+footer button {
+    background-color: var(--clr-primary);
+    cursor: pointer;
+}
+
+.image-container {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: white;
+    border: 5px solid #986844;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.image-container .image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: -12%;
+    animation: avatar 5s ease-in-out infinite;
+    transform-origin: bottom;
+    transition: 500ms;
+}
+
+@keyframes avatar {
+    0%, 50%, 100% {
+        transform: rotate(0deg) translatey(0px) scale(1.05);
+    }
+    25% {
+        transform: rotate(5deg) translatey(5px) scale(1);
+    }
+    75% {
+        transform: rotate(-5deg) translatey(5px) scale(1);
+    }
+}
+
+.image-container .image:active {
+    translate: 0 50px;
+}
+
+.image-container img {
+    display: inline-block;
+    position: absolute;
+    transition: 100ms;
+}
+
+.image-container img.face {
+    width: 40%;
+    left: 30%;
+    bottom: 40%;
+    opacity: 0;
+}
+
+.image-container .face-1 {
+    opacity: 1;
+    animation: eye-open 2s ease-in-out infinite;
+}
+
+.image-container .face-2 {
+    animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 89%, 100% {
+        opacity: 0;
+    }
+    90%, 99% {
+        opacity: 1;
+    }
+}
+
+@keyframes eye-open {
+    0%, 89%, 100% {
+        opacity: 1;
+    }
+    90%, 99% {
+        opacity: 0;
+    }
+}
+
+.image-container:hover img.face {
+    opacity: 0 !important;
+    animation: none;
+}
+
+.image-container:hover img.face-3 {
+    opacity: 1 !important;
+}
+
+.curtain {
+    position: absolute;
+    top: -5px;
+    height: 0;
+    width: 100%;
+    background-color: var(--clr-dark-900);
+    border-bottom: 5px solid var(--clr-primary);
+    transition: 0.5s;
+}
+
+section:has([type="password"]:focus) .curtain {
+    height: 90%;
+}
+
+section:has([type="password"]:focus) .image {
+    animation-play-state: paused;
+}

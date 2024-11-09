@@ -1,8 +1,7 @@
 import React from 'react';
-import '../../css/nosotros.css';
+import '../../css/productos.css';
 import {Link} from "@inertiajs/inertia-react";
-
-let Nosotros = () => {
+let Productos = () => {
     return (
         <div>
             <header>
@@ -49,4 +48,4 @@ let Nosotros = () => {
     );
 }
 
-export default Nosotros;
+export default Productos;

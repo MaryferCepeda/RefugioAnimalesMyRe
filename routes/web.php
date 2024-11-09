@@ -7,8 +7,8 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
+        'canLogin' => Route::has('InicioSesion'),
+        'canRegister' => Route::has('Registro'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
@@ -17,9 +17,17 @@ Route::get('/', function () {
 Route::get('/', function () {
     return Inertia::render('PaginaInicial');
 });
-
 Route::get('/nosotros', function () {
     return Inertia::render('Nosotros');
+});
+Route::get('/productos', function () {
+    return Inertia::render('Productos');
+});
+Route::get('/ubicacion', function () {
+    return Inertia::render('Ubicación');
+});
+Route::get('/contactanos', function () {
+    return Inertia::render('Contactanos');
 });
 
 
