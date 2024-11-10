@@ -28,24 +28,38 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-        $request->validate([
+        // Validación de los datos de entrada
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|lowercase|email|max:255|unique:'.User::class,
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'email' => 'required|email|max:255',
+            'password' => 'required|string|confirmed|min:8',
         ]);
 
+        // Si la validación falla, regresamos con los errores
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        // Verificar si el correo electrónico ya está registrado
+        $existingUser = User::where('email', $request->email)->first();
+
+        if ($existingUser) {
+            // Si el usuario ya existe, iniciamos sesión y lo redirigimos al dashboard
+            Auth::login($existingUser);
+            return redirect()->route('dashboard'); // Ajusta la ruta de redirección según tu caso
+        }
+
+        // Si no existe el usuario, creamos uno nuevo
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => bcrypt($request->password), // Encriptamos la contraseña
         ]);
 
-        event(new Registered($user));
-
+        // Iniciamos sesión con el nuevo usuario
         Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
+        return redirect()->route('/');
     }
 }

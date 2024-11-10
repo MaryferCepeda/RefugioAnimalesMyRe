@@ -1,10 +1,12 @@
 import React from 'react';
 import '../../css/PaginaInicial.css';
 import { Link } from '@inertiajs/inertia-react';
+import {Head} from "@inertiajs/react";
 
 function PaginaInicial() {
     return (
         <div>
+            <Head title={'Pagina principal'} />
             <header>
                 <div className="header-left">
                     <a href="#">
@@ -18,6 +20,7 @@ function PaginaInicial() {
                     <Link href="/productos" title="Conoce nuestros Articulos">Productos</Link>
                     <Link href="/ubicacion" title="Descubre de donde Somos">Ubicación</Link>
                     <Link href="/contactanos" title="Contáctanos para cualquier aclaración">Contactanos</Link>
+                    <Link href="/register">Iniciar Sesion</Link>
                 </nav>
             </header>
             <main className="FondoNegro">

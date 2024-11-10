@@ -14,3 +14,5 @@ Por equipo se entregara una pagina web dinamica que contenga:
 -Inicio de Sesion/Registrarse
 
 Ademas de enviar un correo de confirmacion y el uso de alguna API
+
+

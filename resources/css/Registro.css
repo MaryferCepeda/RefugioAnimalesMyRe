@@ -218,14 +218,15 @@ section:has([type="password"]:focus) .image {
 
 .custom-link {
     color: #007bff !important;
-    text-decoration: underline;
+    text-decoration: none;
+    font-size: 20px;
 }
 
 .custom-button {
     background-color: #007bff !important;
     color: #fff;
-    padding: 10px 20px;
-    border-radius: 4px;
+    padding: 10px 15px;
+    border-radius: 15px;
     border: none;
     cursor: pointer;
 }
@@ -233,3 +234,28 @@ section:has([type="password"]:focus) .image {
 .custom-button:disabled {
     background-color: #ccc !important;
 }
+.btn-google {
+        border: none;
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 15px;
+        background-color: #e4e5e9;
+        color: black;
+        text-decoration: none;
+        border-radius: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        margin-top: 15px;
+}
+.btn-google img{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.btn-google:hover{
+    background-color: #0f5ede;
+}
+
+

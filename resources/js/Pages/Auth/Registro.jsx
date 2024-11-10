@@ -13,10 +13,14 @@ export default function Registro() {
         password: '',
         password_confirmation: '',
     });
-
     const submit = (e) => {
         e.preventDefault();
-        post(route('register'), { onFinish: () => reset('password', 'password_confirmation') });
+        post(route('register'), {
+            onFinish: () => reset('password', 'password_confirmation'),
+            onError: (error) => {
+                console.log('Error:', error);
+            }
+        });
     };
 
     return (
@@ -37,7 +41,7 @@ export default function Registro() {
                 <footer>
                     <form onSubmit={submit} className="custom-login-form">
                         <div className="custom-input-group">
-                            <InputLabel htmlFor="name" value="Nombre" className="custom-label" />
+                            <InputLabel htmlFor="name" value="Nombre" className="custom-label"/>
                             <TextInput
                                 id="name"
                                 name="name"
@@ -49,11 +53,11 @@ export default function Registro() {
                                 onChange={(e) => setData('name', e.target.value)}
                                 required
                             />
-                            <InputError message={errors.name} className="mt-2 custom-error" />
+                            <InputError message={errors.name} className="mt-2 custom-error"/>
                         </div>
 
                         <div className="mt-4 custom-input-group">
-                            <InputLabel htmlFor="email" value="Correo Electrónico" className="custom-label" />
+                            <InputLabel htmlFor="email" value="Correo Electrónico" className="custom-label"/>
                             <TextInput
                                 id="email"
                                 type="email"
@@ -65,11 +69,11 @@ export default function Registro() {
                                 onChange={(e) => setData('email', e.target.value)}
                                 required
                             />
-                            <InputError message={errors.email} className="mt-2 custom-error" />
+                            <InputError message={errors.email} className="mt-2 custom-error"/>
                         </div>
 
                         <div className="mt-4 custom-input-group">
-                            <InputLabel htmlFor="password" value="Contraseña" className="custom-label" />
+                            <InputLabel htmlFor="password" value="Contraseña" className="custom-label"/>
                             <TextInput
                                 id="password"
                                 type="password"
@@ -81,11 +85,12 @@ export default function Registro() {
                                 onChange={(e) => setData('password', e.target.value)}
                                 required
                             />
-                            <InputError message={errors.password} className="mt-2 custom-error" />
+                            <InputError message={errors.password} className="mt-2 custom-error"/>
                         </div>
 
                         <div className="mt-4 custom-input-group">
-                            <InputLabel htmlFor="password_confirmation" value="Confirmar Contraseña" className="custom-label" />
+                            <InputLabel htmlFor="password_confirmation" value="Confirmar Contraseña"
+                                        className="custom-label"/>
                             <TextInput
                                 id="password_confirmation"
                                 type="password"
@@ -97,7 +102,7 @@ export default function Registro() {
                                 onChange={(e) => setData('password_confirmation', e.target.value)}
                                 required
                             />
-                            <InputError message={errors.password_confirmation} className="mt-2 custom-error" />
+                            <InputError message={errors.password_confirmation} className="mt-2 custom-error"/>
                         </div>
 
                         <div className="mt-4 flex items-center justify-end custom-actions">
@@ -111,6 +116,11 @@ export default function Registro() {
                                 Registro
                             </PrimaryButton>
                         </div>
+
+                        <div className="mt-4 flex justify-center">
+                            <a href="/google-auth/redirect" className="btn-google"><img
+                            src="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png"
+                            alt="Google logo" className="google-logo"/> Iniciar sesión con Google </a></div>
                     </form>
                 </footer>
             </section>
