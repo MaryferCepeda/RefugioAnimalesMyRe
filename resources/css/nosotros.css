@@ -1,20 +1,18 @@
 .logo {
-    height: 6em;
-    padding: 1.5em;
-    width: 100px;
+    padding: 15px 0 10px 20px;
+    flex: 0 0 auto;
+    margin-right: 20px;
     height: 100px;
+    width: 100px;
     border-radius: 50%;
     object-fit: cover;
     filter: brightness(80%);
     transition: 0.5s ease;
 }
-
 .logo:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
 }
-
 body {
-    font-family: sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -22,29 +20,51 @@ body {
     min-height: 100vh;
     color: white;
 }
-
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     background-color: #c97f3a;
     color: white;
-    padding: 1rem;
     display: flex;
-    justify-content: space-between; /* Cambia a 'space-between' */
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.header-Izquierda {
+    display: flex;
     align-items: center;
 }
-
-.header-left {
+.header-Derecha {
     display: flex;
-    align-items: center;
+    gap: 15px; /* Espacio entre los íconos */
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.header-Derecha a {
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
+.header-Derecha img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Hace que el ícono sea blanco */
+}
+
+.header-Derecha a:hover img {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
 nav {
     display: flex;
     justify-content: flex-end; /* Alinea el contenido del nav a la derecha */
     margin-right: 70px;
     flex-wrap: wrap;
 }
-
 nav a {
     color: white;
     text-decoration: none;
@@ -52,7 +72,6 @@ nav a {
     margin: 0.25rem;
     font-size: 20px;
 }
-
 nav a:hover {
     background-color: #777;
     border-radius: 20px;
@@ -65,21 +84,85 @@ footer {
     width: 100%;
     height: auto;
 }
-
-#Redes {
+.dropdown {
+    position: relative;
+    display: inline-block;
+    top: 12px;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    top: 12px;
+}
+.dropdown-content {
+    border-radius: 15px;
+    top: 35px;
+    padding: 15px;
+    display: none;
+    position: absolute;
+    background-color: #b16f31;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #555;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.Nosotros-Titulo {
+    background-image: url("https://www.whiskas.com.mx/cdn-cgi/image/format=auto,q=90/sites/g/files/fnmzdf4861/files/2022-11/eduquer-son-Chaton-comment-bien-eduquer-son-Chaton.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 91vh;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    text-shadow: 0 0 0 10px whitesmoke;
 }
-
-#Redes img {
-    width: 40px;
-    height: 40px;
-    padding: 5px;
+h1{
+    color: whitesmoke;
 }
-
-.Introduccion{
+h2{
+    z-index: 4;
+    font-size: 3.7rem;
+}
+.Nosotros {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
     width: 100%;
-    height: auto;
-    color: black;
+    box-sizing: border-box;
+}
+.Vision, .Mision {
+    flex: 1;
+    padding: 5px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 18px;
+    background-color: #fff;
+}
+.Vision {
+    background-color: rgba(201, 127, 58, 0.8);
+}
+.Mision {
+    background-color: rgba(58, 127, 201, 0.8);
+}
+.Vision h4, .Mision h4 {
+    font-size: 34px;
+    color: #fff;
+}
+.Vision .Vision-P, .Mision .Mision-P {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #fff;
+    margin-top: 10px;
 }

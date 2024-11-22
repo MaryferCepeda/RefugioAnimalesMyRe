@@ -1,51 +1,137 @@
 import React from 'react';
+import { Link} from '@inertiajs/inertia-react';
+import {Head} from "@inertiajs/react"
 import '../../css/productos.css';
-import {Link} from "@inertiajs/inertia-react";
-let Productos = () => {
+
+const Producto = ({ imgSrc, precio, descripcion, onAddToCart }) => (
+    <div className="tarjeta">
+        <img src={imgSrc} alt="Producto" className="imagen_producto"/>
+        <div className="precio">{precio}</div>
+        <div className="cantidad">
+            <label htmlFor="qty">Cantidad:</label>
+            <input type="number" id="qty" defaultValue="1" min="1"/>
+        </div>
+        <div className="descripcion">
+            {descripcion.map((desc, index) => (
+                <p key={index}>{desc}</p>
+            ))}
+        </div>
+       <button className={"añadir"}> <span className="material-symbols-outlined">add_shopping_cart</span> </button>
+    </div>
+);
+
+const PaginaRefugio = () => {
+    const productos = new Array(15).fill({
+        imgSrc: 'https://rosariopet.com.ar/wp-content/uploads/2022/07/PC11.jpg',
+        precio: '$10.00',
+        descripcion: [
+            'Este producto es de prueba se mejorara en la base de datos',
+        ],
+    });
+
+    const handleAddToCart = (nombre, precio) => {
+        console.log(`Producto añadido: ${nombre} - ${precio}`);
+    };
+
     return (
         <div>
+            <Head title="Peluditos|Tienda de Apoyo"/>
             <header>
-                <div className="header-left">
-                    <a href="#">
-                        <img className="logo" src="https://cdn-icons-png.flaticon.com/512/5904/5904059.png"
-                             alt="Logo de la página"/>
+                <div className="header-Izquierda">
+                    <a href="/">
+                        <img
+                            className="logo"
+                            src="https://cdn-icons-png.flaticon.com/512/5904/5904059.png"
+                            alt="Logo de la página"
+                        />
                     </a>
-                    <h1>Refugio de Mascotas</h1>
+                    <h1>Refugio de Animales</h1>
+                </div>
+                <div className="header-Derecha">
+                    <a href="https://github.com/MaryferCepeda/RefugioAnimalesMyRe.git" target="_blank"
+                       rel="noopener noreferrer">
+                        <img
+                            src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+                            alt="GitHub"
+                            title={"GitHub"}
+                        />
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="https://img.icons8.com/m_rounded/512/FFFFFF/facebook-new.png"
+                            alt="Facebook"
+                            title={"Facebook"}
+                        />
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="https://cdn-icons-png.flaticon.com/512/733/733646.png"
+                            alt="YouTube"
+                            title={"YouTube"}
+                        />
+                    </a>
                 </div>
                 <nav>
-                    <Link href="/" title="Este es el menú principal">Inicio</Link>
-                    <Link href="/nosotros" title="Conoce las Historias de nuestras Mascotas">Nosotros</Link>
-                    <Link href="/productos" title="Conoce nuestros Articulos">dshfvsjhdv</Link>
-                    <Link href="/ubicacion" title="Descubre de donde Somos">Ubicación</Link>
-                    <Link href="/contactanos" title="Contáctanos para cualquier aclaración">Contactanos</Link>
+                    <Link href="/" title="Este es el menu principal">Inicio</Link>
+                    <Link href="/Nosotros" title="Conócenos">Nosotros</Link>
+                    <div className="dropdown">
+                        <Link href="#" className="dropbtn">
+                            Formas de Apoyo
+                        </Link>
+                        <div className="dropdown-content">
+                            <Link href="#">Donativos</Link>
+                            <Link href="/Productos">Productos</Link>
+                        </div>
+                    </div>
+                    <Link href="/Contactanos" title="Contáctanos para cualquier aclaración">
+                        Contáctanos
+                    </Link>
+                    <Link href="register" title="Iniciar Sesión">Inicio de Sesión</Link>
                 </nav>
             </header>
-            <article className="Introduccion">
-                <p>
-                    mi primera pagina web en laravel robada
-                </p>
-            </article>
+
+            <main>
+                <div id="mensaje" className="mensaje">
+                    <div className="mensaje-contenedor">
+                        <h2>Hola navegador! Veo que lograste encontrar nuestra página :3</h2>
+                        <p>
+                            Este mensaje es para informarte que{' '}
+                            <strong>
+                                ¡NO REALICES NINGÚN DONATIVO O COMPRA!
+                            </strong>{' '}
+                            ya que esta página está realizada específicamente para fines
+                            escolares y no queremos ir al bote.
+                        </p>
+                        <p>¡Muchas gracias por tu atención!</p>
+                        <button className="close-btn">Entendido</button>
+                    </div>
+                </div>
+
+                <div className="cart-icon">
+                    <i className="fas fa-shopping-cart"></i>
+                    <span className="cart-count" id="cart-count">0</span>
+                    <span className="material-symbols-outlined">shopping_cart</span>
+                </div>
+
+                <div className="productos_contenedor">
+                {productos.map((producto, index) => (
+                        <Producto
+                            key={index}
+                            imgSrc={producto.imgSrc}
+                            precio={producto.precio}
+                            descripcion={producto.descripcion}
+                            onAddToCart={() =>
+                                handleAddToCart(`Producto ${index + 1}`, producto.precio)
+                            }
+                        />
+                    ))}
+                </div>
+            </main>
             <footer>
-                <p>&copy; 2024 Tienda de Mascotas. Todos los derechos reservados.</p>
-                <section id="Redes">
-                    <h4>Síguenos en:</h4>
-                    <a href="#">
-                        <img className="uno"
-                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png"
-                             alt="Instagram"/>
-                    </a>
-                    <a href="#">
-                        <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/768px-Facebook_Logo_%282019%29.png"
-                            alt="Facebook"/>
-                    </a>
-                    <a href="#">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube"/>
-                    </a>
-                </section>
+                <p>&copy; 2024 Refugio de Mascotas. Todos los derechos reservados.</p>
             </footer>
         </div>
     );
-}
+};
 
-export default Productos;
+export default PaginaRefugio;

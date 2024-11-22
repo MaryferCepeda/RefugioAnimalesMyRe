@@ -1,50 +1,56 @@
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    filter: brightness(80%);
-    transition: 0.5s ease;
-}
-
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
+    min-height: 100vh;
+    background-color:#cccccc;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    color: white;
+    margin: 0;
+    padding: 0;
 }
-
 header {
     width: 100%;
     background-color: #c97f3a;
     color: white;
-    padding: 1rem;
     display: flex;
-    justify-content: space-between; /* Cambia a 'space-between' */
+    justify-content: space-between;
     align-items: center;
 }
-
-.header-left {
+.header-Izquierda {
     display: flex;
     align-items: center;
 }
+.header-Derecha {
+    display: flex;
+    gap: 15px; /* Espacio entre los íconos */
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
 
+.header-Derecha a {
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header-Derecha img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Hace que el ícono sea blanco */
+}
+
+.header-Derecha a:hover img {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+.logo {
+    flex: 0 0 auto;
+    margin-right: 20px;
+}
 nav {
     display: flex;
     justify-content: flex-end; /* Alinea el contenido del nav a la derecha */
     margin-right: 70px;
     flex-wrap: wrap;
 }
-
 nav a {
     color: white;
     text-decoration: none;
@@ -52,34 +58,198 @@ nav a {
     margin: 0.25rem;
     font-size: 20px;
 }
-
 nav a:hover {
     background-color: #777;
     border-radius: 20px;
 }
+main {
+    flex: 1;
+    padding: 2rem;
+    text-align: center;
+}
 footer {
+    width: 100%;
+    height: auto;
+    padding: 1rem;
     background-color: rgba(0, 0, 34, 0.7);
     color: white;
     text-align: center;
-    padding: 1rem;
-    width: 100%;
-    height: auto;
+    position: relative;
 }
-
-#Redes {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+.logo {
+    padding: 15px 0 10px 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: brightness(80%);
+    transition: 0.5s ease;
 }
-
-#Redes img {
-    width: 40px;
-    height: 40px;
-    padding: 5px;
+.logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
 }
-
-.Introduccion{
-    width: 100%;
-    height: auto;
+.productos_contenedor {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0 auto;
+}
+.tarjeta {
+    min-width: 0;
+    width: 300px;
+    padding-left: 10px;
     color: black;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+.imagen_producto {
+    width: 50%;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    padding-left: 70px;
+
+}
+.precio{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.cantidad {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.cantidad input {
+    width: 80px;
+    text-align: center;
+    margin: 0 5px;
+    border-radius: 30px;
+}
+.descripcion {
+    margin-bottom: 20px;
+}
+.añadir {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    top: 12px;
+}
+.dropdown-content {
+    border-radius: 15px;
+    top: 35px;
+    padding: 15px;
+    display: none;
+    position: absolute;
+    background-color: #b16f31;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover {
+    background-color: #555;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.cart-icon {
+    position: absolute;
+    top: 170px; /* Ajusta según la altura de tu nav */
+    right: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.cart-icon i {
+    font-size: 24px;
+    margin-right: 8px;
+}
+.cart-count {
+    background-color: #f00;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 12px;
+}
+ .material-symbols-outlined {
+     font-variation-settings:
+         'FILL' 0,
+         'wght' 400,
+         'GRAD' 0,
+         'opsz' 24
+ }
+.mensaje {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.mensaje-contenedor {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.close-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.close-btn:hover {
+    background-color: #0056b3;
+}
+strong{
+    color: red;
 }

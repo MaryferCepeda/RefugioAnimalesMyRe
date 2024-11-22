@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -33,8 +32,8 @@ class RegisteredUserController extends Controller
         // Validación de los datos de entrada
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'password' => 'required|string|confirmed|min:8',
+            'email' => 'required|email|max:255|unique:users,email', // Verifica que el correo sea único
+            'password' => 'required|string|confirmed|min:8', // Valida que las contraseñas coincidan
         ]);
 
         // Si la validación falla, regresamos con los errores
@@ -42,24 +41,21 @@ class RegisteredUserController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-        // Verificar si el correo electrónico ya está registrado
-        $existingUser = User::where('email', $request->email)->first();
-
-        if ($existingUser) {
-            // Si el usuario ya existe, iniciamos sesión y lo redirigimos al dashboard
-            Auth::login($existingUser);
-            return redirect()->route('dashboard'); // Ajusta la ruta de redirección según tu caso
-        }
-
-        // Si no existe el usuario, creamos uno nuevo
+        // Crear un nuevo usuario
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password), // Encriptamos la contraseña
         ]);
 
-        // Iniciamos sesión con el nuevo usuario
+        // Opcional: Disparar evento de registro (por si tienes listeners configurados)
+        event(new Registered($user));
+
+        // Iniciar sesión con el nuevo usuario
         Auth::login($user);
-        return redirect()->route('/');
+
+        // Redirigir a la página inicial
+        return redirect('/'); // Redirección directa a "/"
     }
 }
+

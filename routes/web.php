@@ -32,7 +32,6 @@ Route::get('/google-auth/callback', function () {
 
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
-
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('InicioSesion'),
@@ -45,16 +44,16 @@ Route::get('/', function () {
 Route::get('/', function () {
     return Inertia::render('PaginaInicial');
 });
-Route::get('/nosotros', function () {
+Route::get('/Nosotros', function () {
     return Inertia::render('Nosotros');
 });
-Route::get('/productos', function () {
+Route::get('/Productos', function () {
     return Inertia::render('Productos');
 });
-Route::get('/ubicacion', function () {
+Route::get('/Ubicacion', function () {
     return Inertia::render('Ubicación');
 });
-Route::get('/contactanos', function () {
+Route::get('/Contactanos', function () {
     return Inertia::render('Contactanos');
 });
 

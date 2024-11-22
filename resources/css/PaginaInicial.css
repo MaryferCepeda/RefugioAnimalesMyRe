@@ -2,12 +2,12 @@
     background-color: #000000;
     color: white;
 }
-
 .logo {
-    height: 6em;
-    padding: 1.5em;
-    width: 100px;
+    flex: 0 0 auto; /* Asegura que la imagen no se estire o reduzca */
+    margin-right: 20px; /* Ajusta la separación de la imagen */
     height: 100px;
+    width: 100px;
+    padding: 15px 0 10px 20px;
     border-radius: 50%;
     object-fit: cover;
     filter: brightness(80%);
@@ -17,9 +17,7 @@
 .logo:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
 }
-
 body {
-    font-family: sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -27,25 +25,26 @@ body {
     min-height: 100vh;
     color: white;
 }
-
-header {
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     background-color: #c97f3a;
     color: white;
-    padding: 1rem;
     display: flex;
-    justify-content: space-between; /* Cambia a 'space-between' */
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.header-Izquierda {
+    display: flex;
     align-items: center;
 }
-
-.header-left {
-    display: flex;
-    align-items: center;
-}
-
 nav {
     display: flex;
-    justify-content: flex-end; /* Alinea el contenido del nav a la derecha */
+    justify-content: flex-end; /* Alinea los enlaces a la derecha */
     margin-right: 70px;
     flex-wrap: wrap;
 }
@@ -55,15 +54,68 @@ nav a {
     text-decoration: none;
     padding: 0.5rem 1rem;
     margin: 0.25rem;
-    font-size: 20px;
+    font-size: 20px; /* Ajusta el tamaño de fuente */
 }
 
 nav a:hover {
     background-color: #777;
     border-radius: 20px;
 }
+.dropdown {
+    position: relative;
+    display: inline-block;
+    top: 12px;
+}
+.dropdown-content {
+    border-radius: 15px;
+    top: 35px;
+    padding: 15px;
+    display: none;
+    position: absolute;
+    background-color: #b16f31;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
 
+.dropdown-content a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.header-Derecha {
+    display: flex;
+    gap: 15px; /* Espacio entre los íconos */
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.header-Derecha a {
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.header-Derecha img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1); /* Hace que el ícono sea blanco */
+}
+
+.header-Derecha a:hover img {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
 main {
+    margin-top: 80px;
     background-color: #000000;
     color: white;
     flex: 1; /* Permite que main ocupe el espacio disponible */
@@ -83,19 +135,6 @@ footer {
     width: 100%;
     height: auto;
 }
-
-#Redes {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-#Redes img {
-    width: 40px;
-    height: 40px;
-    padding: 5px;
-}
-
 .Historia1 {
     display: flex;
     justify-content: flex-start;
@@ -130,27 +169,6 @@ button.Conocer {
 button.Conocer:hover {
     background-color: #777;
 }
-
-@media (max-width: 768px) {
-    header {
-        height: auto;
-    }
-
-    .logo {
-        width: 80px;
-        height: 80px;
-    }
-
-    nav {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav a {
-        margin: 0.25rem 0;
-    }
-}
-
 .Introduccion {
     font-size: 23px;
     display: block;
