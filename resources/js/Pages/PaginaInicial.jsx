@@ -1,12 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../../css/PaginaInicial.css';
 import { Link } from '@inertiajs/inertia-react';
-import {Head} from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
+
+// Componente de ventana flotante
+const FloatingWindow = ({ message, onClose }) => {
+    return (
+        <div style={styles.overlay}>
+            <div style={styles.window}>
+                <div style={styles.header}>
+                    <span>Mensaje</span>
+                    <button onClick={onClose} style={styles.closeButton}>X</button>
+                </div>
+                <div style={styles.body}>
+                    {message}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const styles = {
+    overlay: {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',  // Fondo oscuro semitransparente
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: 1000
+    },
+    window: {
+        backgroundColor: 'white',
+        border: '1px solid #ccc',
+        boxShadow: '0px 4px 6px rgba(0,0,0,0.1)',
+        padding: '20px',
+        width: '300px',
+        borderRadius: '8px',
+    },
+    header: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        fontWeight: 'bold'
+    },
+    closeButton: {
+        backgroundColor: 'transparent',
+        border: 'none',
+        cursor: 'pointer',
+        fontSize: '16px',
+    },
+    body: {
+        marginTop: '10px',
+        color: 'black',                // Cambia el color del texto a negro
+        fontFamily: "'Arial', sans-serif", // Aplica la fuente 'Arial'
+        lineHeight: '1.6',               // Aplica el line-height de 1.6
+    }
+};
 
 function PaginaInicial() {
+    const [showWindow, setShowWindow] = useState(true);
+
+    const closeWindow = () => setShowWindow(false);
+
     return (
         <div>
-            <Head title={'Peluditos'}/>
+            <Head title={'Peluditos'} />
             <header>
                 <div className="header-Izquierda">
                     <a href="/">
@@ -171,6 +233,8 @@ function PaginaInicial() {
             <footer>
                 <p>&copy; 2024 Peluditos Refugio de Mascotas. Todos los derechos reservados.</p>
             </footer>
+
+            {showWindow && <FloatingWindow message="¡Bienvenido a Refugio Esperanza! Estamos felices de que nos visites. Pero recuerda que esta pagina fue creada con fines educativos. No nos deposites ni un peso ;)" onClose={closeWindow} />}
         </div>
     );
 }
