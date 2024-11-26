@@ -1,6 +1,8 @@
-.FondoNegro {
-    background-color: #000000;
-    color: white;
+/* Fondo general */
+.fondo-negro {
+    background-color: #121212;
+    color: #f5f5f5;
+    padding: 2rem;
 }
 .logo {
     flex: 0 0 auto; /* Asegura que la imagen no se estire o reduzca */
@@ -135,53 +137,217 @@ footer {
     width: 100%;
     height: auto;
 }
-.Historia1 {
+
+
+/* Sección Historia */
+.historia {
     display: flex;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+/* Imagen */
+.imagen-container {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mascota-imagen {
     width: 100%;
-    margin-right: 170px;
+    max-width: 300px;
+    border-radius: 50%;
+    border: 4px solid #ff9800;
 }
 
-.MacotaUno {
-    height: 750px;
-    width: 700px;
-    filter: drop-shadow(0 0 5px #FFF);
+/* Contenedor de descripción */
+.descripcion-container {
+    flex: 2 1 400px;
+    text-align: left;
 }
 
-.Descripcion {
-    font-size: 23px;
-    display: block;
-    width: 500px;
-    height: auto;
-    margin-top: 20px;
+.descripcion-container h2 {
+    color: #ff9800;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
 }
 
-button.Conocer {
-    display: block;
+.descripcion-container p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+/* Botón */
+.btn-conocer {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: #ff9800;
+    color: #121212;
+    font-weight: bold;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-conocer a {
+    text-decoration: none;
+    color: #121212;
+}
+
+.btn-conocer:hover {
+    background: #f44336;
+}
+
+.Body2{
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.intro, .impact, .problem, .solution, .cta{
     margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+/* Sección de introducción */
+.intro {
     text-align: center;
-    background-color: #c97f3a;
-    color: white;
-    padding: 15px 15px;
-    border-radius: 20px;
 }
 
-button.Conocer:hover {
-    background-color: #777;
-}
-.Introduccion {
-    font-size: 23px;
-    display: block;
-    width: 500px;
-    height: auto;
-    margin-top: 20px;
-    color: black;
-    margin-left: 100px;
+.intro p {
+    font-size: 1.2em;
+    color: #555;
 }
 
-.IntroduccionCanina {
-    display: block;
-    justify-content: flex-end;
-    width: 300px;
-    height: 300px;
+.intro ul {
+    list-style: none;
+    padding: 0;
+}
+
+.intro ul li {
+    font-size: 1.1em;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.intro ul li::before {
+    content: "❤️";
+    margin-right: 10px;
+}
+
+/* Sección de impacto */
+.impact h2 {
+    color: #ff9800;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.impact p {
+    font-size: 1.2em;
+    text-align: center;
+    color: #444;
+}
+
+/* Sección del problema */
+.problem h2 {
+    color: #f44336;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.problem ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.problem ul li {
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+/* Sección de solución */
+.solution h2 {
+    color: #4caf50;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.solution ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.solution ul li {
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+/* Sección CTA */
+.cta h2 {
+    color: #2196f3;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.cta ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.cta ul li {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #444;
+}
+
+.cta ul li strong {
+    color: #000;
+}
+
+.cta p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #444;
+}
+
+/* Resaltado de texto */
+strong {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    section {
+        padding: 10px;
+    }
+
+    .intro p, .impact p, .problem p, .solution p, .cta p {
+        font-size: 1em;
+    }
+
+    .cta ul li {
+        font-size: 1em;
+    }
 }
