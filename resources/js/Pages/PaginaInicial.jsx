@@ -112,7 +112,7 @@ function PaginaInicial() {
                             Formas de Apoyo
                         </Link>
                         <div className="dropdown-content">
-                            <Link href="#">Donativos</Link>
+                            <Link href="/Donar">Donativos</Link>
                             <Link href="/Productos">Productos</Link>
                         </div>
                     </div>

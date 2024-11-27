@@ -51,21 +51,21 @@ const PaginaRefugio = () => {
                     <a href="https://github.com/MaryferCepeda/RefugioAnimalesMyRe.git" target="_blank"
                        rel="noopener noreferrer">
                         <img
-                            src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+                            src="/Imagenes/Githud.png"
                             alt="GitHub"
                             title={"GitHub"}
                         />
                     </a>
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="https://img.icons8.com/m_rounded/512/FFFFFF/facebook-new.png"
+                            src="/Imagenes/facebook.png"
                             alt="Facebook"
                             title={"Facebook"}
                         />
                     </a>
                     <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="https://cdn-icons-png.flaticon.com/512/733/733646.png"
+                            src="/Imagenes/youtube.png"
                             alt="YouTube"
                             title={"YouTube"}
                         />
@@ -79,7 +79,7 @@ const PaginaRefugio = () => {
                             Formas de Apoyo
                         </Link>
                         <div className="dropdown-content">
-                            <Link href="#">Donativos</Link>
+                            <Link href="/Donar">Donativos</Link>
                             <Link href="/Productos">Productos</Link>
                         </div>
                     </div>

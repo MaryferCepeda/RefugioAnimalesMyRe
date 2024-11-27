@@ -35,6 +35,10 @@ Route::get('/', function () {
     return Inertia::render('paginaInicial');
 });
 
+Route::get('/Donar', function () {
+    return Inertia::render('Donaciones');
+});
+
 Route::get('/Nosotros', function () {
     return Inertia::render('Nosotros');
 });
