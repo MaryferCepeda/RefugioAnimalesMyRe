@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../../css/PaginaInicial.css';
 import { Link } from '@inertiajs/inertia-react';
 import { Head } from "@inertiajs/react";
+import '../../css/PaginaInicial.css';
 
 // Componente de ventana flotante
 const FloatingWindow = ({ message, onClose }) => {
@@ -74,31 +74,31 @@ function PaginaInicial() {
                     <a href="/">
                         <img
                             className="logo"
-                            src="https://cdn-icons-png.flaticon.com/512/5904/5904059.png"
+                            src="/Imagenes/logo.png"
                             alt="Logo de la página"
                         />
                     </a>
-                    <h1>Refugio de Animales</h1>
+                    <h1>Peluditos</h1>
                 </div>
                 <div className="header-Derecha">
                     <a href="https://github.com/MaryferCepeda/RefugioAnimalesMyRe.git" target="_blank"
                        rel="noopener noreferrer">
                         <img
-                            src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+                            src="/Imagenes/Githud.png"
                             alt="GitHub"
                             title={"GitHub"}
                         />
                     </a>
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="https://img.icons8.com/m_rounded/512/FFFFFF/facebook-new.png"
+                            src="/Imagenes/facebook.png"
                             alt="Facebook"
                             title={"Facebook"}
                         />
                     </a>
                     <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
                         <img
-                            src="https://cdn-icons-png.flaticon.com/512/733/733646.png"
+                            src="/Imagenes/youtube.png"
                             alt="YouTube"
                             title={"YouTube"}
                         />
@@ -128,7 +128,7 @@ function PaginaInicial() {
                     <div className="imagen-container">
                         <img
                             className="mascota-imagen"
-                            src="https://static.vecteezy.com/system/resources/thumbnails/034/928/042/small_2x/ai-generated-cat-clip-art-free-png.png"
+                            src="/Imagenes/Gato_inicio.webp"
                             alt="Imagen del gato Miau"
                         />
                     </div>

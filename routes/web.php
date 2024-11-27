@@ -13,7 +13,6 @@ Route::get('/google-auth/redirect', function () {
 });
 
 Route::get('/google-auth/callback', function () {
-
     $user_google = Socialite::driver('google')->user();
     $user = User::updateOrCreate(
         [
@@ -33,30 +32,15 @@ Route::get('/google-auth/callback', function () {
 Route::post('/register', [RegisteredUserController::class, 'store']);
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('InicioSesion'),
-        'canRegister' => Route::has('Registro'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return Inertia::render('paginaInicial');
 });
 
-Route::get('/', function () {
-    return Inertia::render('PaginaInicial');
-});
 Route::get('/Nosotros', function () {
     return Inertia::render('Nosotros');
 });
 Route::get('/Productos', function () {
     return Inertia::render('Productos');
 });
-Route::get('/Ubicacion', function () {
-    return Inertia::render('Ubicación');
-});
-Route::get('/Contactanos', function () {
-    return Inertia::render('Contactanos');
-});
-
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -68,4 +52,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
 

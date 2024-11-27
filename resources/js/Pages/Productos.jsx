@@ -41,7 +41,7 @@ const PaginaRefugio = () => {
                     <a href="/">
                         <img
                             className="logo"
-                            src="https://cdn-icons-png.flaticon.com/512/5904/5904059.png"
+                            src="/Imagenes/logo.png"
                             alt="Logo de la página"
                         />
                     </a>
