@@ -50,9 +50,7 @@ Route::get('/Nosotros', function () {
 Route::get('/Productos', function () {
     return Inertia::render('Productos');
 });
-Route::get('/Ubicacion', function () {
-    return Inertia::render('Ubicación');
-});
+
 Route::get('/Contactanos', function () {
     return Inertia::render('Contactanos');
 });

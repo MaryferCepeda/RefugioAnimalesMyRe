@@ -2,7 +2,7 @@ import React from 'react';
 import '../../css/PaginaInicial.css';
 import { Link } from '@inertiajs/inertia-react';
 
-function PaginaInicial() {
+function Contactanos() {
     return (
         <div>
             <header>
@@ -56,4 +56,4 @@ function PaginaInicial() {
     );
 }
 
-export default PaginaInicial;
+export default Contactanos;
