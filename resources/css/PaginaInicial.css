@@ -27,97 +27,109 @@ body {
     min-height: 100vh;
     color: white;
 }
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #c97f3a;
-    color: white;
+header {
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    background: linear-gradient(45deg, #FF8C00, #FF4500); /* Degradado con tonos más oscuros de naranja */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.header-Izquierda {
+
+.header-Izquierda, .header-Derecha {
     display: flex;
     align-items: center;
 }
+
+.header-Izquierda .logo {
+    width: 50px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.header-Izquierda h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header-Derecha a {
+    margin-left: 10px;
+}
+
+.header-Derecha img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.header-Derecha img:hover {
+    transform: scale(1.1);
+}
+
 nav {
     display: flex;
-    justify-content: flex-end; /* Alinea los enlaces a la derecha */
-    margin-right: 70px;
-    flex-wrap: wrap;
+    align-items: center;
 }
 
 nav a {
+    margin: 0 10px;
     color: white;
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    margin: 0.25rem;
-    font-size: 20px; /* Ajusta el tamaño de fuente */
+    font-size: 18px;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    background-color: #777;
-    border-radius: 20px;
+    color: #f1f1f1;
 }
+
 .dropdown {
     position: relative;
     display: inline-block;
-    top: 12px;
 }
+
 .dropdown-content {
-    border-radius: 15px;
-    top: 35px;
-    padding: 15px;
     display: none;
     position: absolute;
-    background-color: #b16f31;
+    background-color: white;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
 .dropdown-content a {
-    color: #fff;
+    color: black;
+    padding: 12px 16px;
     text-decoration: none;
     display: block;
+    transition: background-color 0.3s;
 }
 
 .dropdown-content a:hover {
-    background-color: #555;
+    background-color: #f1f1f1;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
-.header-Derecha {
-    display: flex;
-    gap: 15px; /* Espacio entre los íconos */
-    position: absolute;
-    top: 10px;
-    right: 20px;
+
+.dropbtn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
 }
 
-.header-Derecha a {
-    display: inline-block;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+.dropbtn:hover {
+    color: #f1f1f1;
 }
 
-.header-Derecha img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1); /* Hace que el ícono sea blanco */
-}
-
-.header-Derecha a:hover img {
-    transform: scale(1.1);
-    opacity: 0.8;
-}
 main {
-    margin-top: 80px;
+    margin-top: 0;
     background-color: #000000;
     color: white;
     flex: 1; /* Permite que main ocupe el espacio disponible */
@@ -129,14 +141,41 @@ main {
     padding: 2rem;
 }
 
+
 footer {
-    background-color: rgba(0, 0, 34, 0.7);
+    background: linear-gradient(45deg, #000000, #2f2f2f); /* Degradado de colores negros */
     color: white;
     text-align: center;
-    padding: 1rem;
-    width: 100%;
-    height: auto;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    font-size: 1.2rem; /* Tamaño de fuente más grande */
+    z-index: 10;
 }
+
+footer p {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Fuente de texto */
+    font-weight: bold;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 5px;
+    background: #fff; /* Línea decorativa */
+    border-radius: 5px;
+}
+
+footer p span {
+    color: #ff9800; /* Color dorado para resaltar */
+}
+
+
 
 
 /* Sección Historia */
@@ -170,6 +209,7 @@ footer {
 
 /* Contenedor de descripción */
 .descripcion-container {
+    font-family: 'Arial', sans-serif;
     flex: 2 1 400px;
     text-align: left;
 }

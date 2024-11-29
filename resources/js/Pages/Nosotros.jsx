@@ -27,19 +27,35 @@ const Nosotros = () => {
             <header>
                 <div className="header-Izquierda">
                     <a href="/">
-                        <img className="logo" src="/Imagenes/logo.png" alt="Logo de la página"/>
+                        <img
+                            className="logo"
+                            src="https://cdn-icons-png.flaticon.com/512/5904/5904059.png"
+                            alt="Logo de la página"
+                        />
                     </a>
-                    <h1>Peluditos</h1>
+                    <h1>Refugio de Animales</h1>
                 </div>
                 <div className="header-Derecha">
                     <a href="https://github.com/MaryferCepeda/RefugioAnimalesMyRe.git" target="_blank" rel="noopener noreferrer">
-                        <img src="/Imagenes/Githud.png" alt="GitHub" title={"GitHub"} />
+                        <img
+                            src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+                            alt="GitHub"
+                            title={"GitHub"}
+                        />
                     </a>
                     <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                        <img src="/Imagenes/facebook.png" alt="Facebook" title={"Facebook"} />
+                        <img
+                            src="https://img.icons8.com/m_rounded/512/FFFFFF/facebook-new.png"
+                            alt="Facebook"
+                            title={"Facebook"}
+                        />
                     </a>
                     <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                        <img src="/Imagenes/youtube.png" alt="YouTube" title={"YouTube"} />
+                        <img
+                            src="https://cdn-icons-png.flaticon.com/512/733/733646.png"
+                            alt="YouTube"
+                            title={"YouTube"}
+                        />
                     </a>
                 </div>
                 <nav>
@@ -48,7 +64,7 @@ const Nosotros = () => {
                     <div className="dropdown">
                         <Link href="#" className="dropbtn">Formas de Apoyo</Link>
                         <div className="dropdown-content">
-                            <Link href="/Donar">Donativos</Link>
+                            <Link href="#">Donativos</Link>
                             <Link href="/Productos">Productos</Link>
                         </div>
                     </div>
@@ -75,7 +91,7 @@ const Nosotros = () => {
                     </p>
                 </div>
             </main>
-
+            <div className='Body2'>
             <article className="Refugio-Historia animate">
                 <img className="Imagen-Historia_Refugio" src="/Imagenes/Historia-Refugio.jpeg" alt="Historia del Refugio"/>
                 <div className="Refugio-Contenido">
@@ -118,8 +134,9 @@ const Nosotros = () => {
                         />
                     </div>
                 </div>
-            </aside>
-
+            </aside>    
+            </div>
+            
             <hr/>
             <div className="Tecnologias animate">
                 <h5>Tecnologías Usadas</h5>
@@ -147,9 +164,7 @@ const Nosotros = () => {
             <hr/>
 
             <footer>
-                <p>
-                    &copy; 2024 Refugio de Mascotas. Todos los derechos reservados.
-                </p>
+                <p>&copy; <span>2024 Peluditos Refugio de Mascotas.</span> Todos los derechos reservados.</p>
             </footer>
         </div>
     );

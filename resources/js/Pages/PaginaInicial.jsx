@@ -81,8 +81,7 @@ function PaginaInicial() {
                     <h1>Refugio de Animales</h1>
                 </div>
                 <div className="header-Derecha">
-                    <a href="https://github.com/MaryferCepeda/RefugioAnimalesMyRe.git" target="_blank"
-                       rel="noopener noreferrer">
+                    <a href="https://github.com/MaryferCepeda/RefugioAnimalesMyRe.git" target="_blank" rel="noopener noreferrer">
                         <img
                             src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
                             alt="GitHub"
@@ -108,20 +107,17 @@ function PaginaInicial() {
                     <Link href="/" title="Este es el menu principal">Inicio</Link>
                     <Link href="/Nosotros" title="Conócenos">Nosotros</Link>
                     <div className="dropdown">
-                        <Link href="#" className="dropbtn">
-                            Formas de Apoyo
-                        </Link>
+                        <Link href="#" className="dropbtn">Formas de Apoyo</Link>
                         <div className="dropdown-content">
                             <Link href="#">Donativos</Link>
                             <Link href="/Productos">Productos</Link>
                         </div>
                     </div>
-                    <Link href="/Contactanos" title="Contáctanos para cualquier aclaración">
-                        Contáctanos
-                    </Link>
+                    <Link href="/Contactanos" title="Contáctanos para cualquier aclaración">Contáctanos</Link>
                     <Link href="register" title="Iniciar Sesión">Inicio de Sesión</Link>
                 </nav>
             </header>
+
 
             <main className="fondo-negro">
                 <section className="historia">
@@ -231,8 +227,9 @@ function PaginaInicial() {
                 </section>
             </div>
             <footer>
-                <p>&copy; 2024 Peluditos Refugio de Mascotas. Todos los derechos reservados.</p>
+                <p>&copy; <span>2024 Peluditos Refugio de Mascotas.</span> Todos los derechos reservados.</p>
             </footer>
+
 
             {showWindow && <FloatingWindow message="¡Bienvenido a Refugio Esperanza! Estamos felices de que nos visites. Pero recuerda que esta pagina fue creada con fines educativos. No nos deposites ni un peso ;)" onClose={closeWindow} />}
         </div>
