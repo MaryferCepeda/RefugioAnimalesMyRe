@@ -1,46 +1,113 @@
 body {
     min-height: 100vh;
-    background-color:#cccccc;
+    background-color: #cccccc;
     display: flex;
     flex-direction: column;
     margin: 0;
     padding: 0;
 }
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    background-color: #c97f3a;
+    background: linear-gradient(45deg, #FF8C00, #FF4500); /* Degradado con tonos más oscuros de naranja */
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    box-sizing: border-box; /* Asegura que el padding no afecte la altura total */
 }
+
 .header-Izquierda {
     display: flex;
     align-items: center;
 }
-.header-Derecha {
+
+.header-Izquierda .logo {
+    width: 50px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.header-Izquierda h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+nav {
     display: flex;
-    gap: 15px; /* Espacio entre los íconos */
-    position: absolute;
-    top: 10px;
-    right: 20px;
+    justify-content: flex-end;
+    margin-right: 70px;
+    flex-wrap: wrap;
+    align-items: center; /* Asegura que los elementos estén alineados verticalmente */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    font-size: 20px;
+}
+
+nav a:hover {
+    background-color: #777;
+    border-radius: 20px;
 }
 
 .header-Derecha a {
-    display: inline-block;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    margin-left: 10px;
 }
 
 .header-Derecha img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1); /* Hace que el ícono sea blanco */
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
 }
 
-.header-Derecha a:hover img {
+.header-Derecha img:hover {
     transform: scale(1.1);
-    opacity: 0.8;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    top: 0; /* Asegura que el dropdown esté al mismo nivel que los otros elementos */
+    z-index: 2; /* Asegura que el menú esté sobre otros elementos */
+}
+
+.dropdown-content {
+    border-radius: 15px;
+    padding: 15px;
+    display: none;
+    position: absolute;
+    background: linear-gradient(45deg, #FF8C00, #FF4500);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 0; /* Asegura que no haya un espacio innecesario */
+}
+
+.dropdown-content a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
 .logo {
     flex: 0 0 auto;
     margin-right: 20px;
@@ -68,14 +135,38 @@ main {
     text-align: center;
 }
 footer {
-    width: 100%;
-    height: auto;
-    padding: 1rem;
-    background-color: rgba(0, 0, 34, 0.7);
+    background: linear-gradient(45deg, #000000, #2f2f2f); /* Degradado de colores negros */
     color: white;
     text-align: center;
+    padding: 2rem;
     position: relative;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    font-size: 1.2rem; /* Tamaño de fuente más grande */
+    z-index: 10;
 }
+
+footer p {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Fuente de texto */
+    font-weight: bold;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 5px;
+    background: #fff; /* Línea decorativa */
+    border-radius: 5px;
+}
+
+footer p span {
+    color: #ff9800; /* Color dorado para resaltar */
+}
+
 .logo {
     padding: 15px 0 10px 20px;
     width: 100px;
@@ -88,107 +179,95 @@ footer {
 .logo:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
 }
+
+/* Contenedor de productos */
 .productos_contenedor {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adaptación de la cuadrícula */
     gap: 20px;
     padding: 20px;
     max-width: 100%;
     overflow-x: hidden;
     margin: 0 auto;
 }
+
+/* Tarjeta de cada producto */
 .tarjeta {
-    min-width: 0;
-    width: 300px;
-    padding-left: 10px;
-    color: black;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-.imagen_producto {
-    width: 50%;
-    margin-bottom: 15px;
-    padding-top: 10px;
-    padding-left: 70px;
 
+/* Efecto hover de la tarjeta */
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
-.precio{
-    font-size: 30px;
+
+/* Imagen del producto */
+.imagen_producto {
+    width: 100%;
+    height: 200px; /* Establece una altura fija para las imágenes */
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+    border-bottom: 1px solid #ccc;
+}
+
+/* Precio del producto */
+.precio {
+    font-size: 22px;
     font-weight: bold;
-    margin-bottom: 20px;
+    color: #d9534f;
+    margin: 10px 0;
 }
+
+/* Descripción corta */
+.descripcion {
+    font-size: 14px;
+    color: #555;
+    padding: 0 10px;
+    margin-bottom: 10px;
+}
+
+/* Contenedor de la cantidad */
 .cantidad {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    padding: 0 10px;
 }
-
 .cantidad input {
-    width: 80px;
+    width: 50px;
     text-align: center;
     margin: 0 5px;
-    border-radius: 30px;
-}
-.descripcion {
-    margin-bottom: 20px;
-}
-.añadir {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    background-color: #28a745;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
-.material-symbols-outlined {
-    font-family: 'Material Symbols Outlined';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
+/* Botón de añadir */
+.añadir {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto; /* Asegura que el botón se ubique al final de la tarjeta */
 }
-.dropdown {
-    position: relative;
-    display: inline-block;
-    top: 12px;
+
+.añadir:hover {
+    background-color: #218838;
 }
-.dropdown-content {
-    border-radius: 15px;
-    top: 35px;
-    padding: 15px;
-    display: none;
-    position: absolute;
-    background-color: #b16f31;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-.dropdown-content a {
-    color: #fff;
-    text-decoration: none;
-    display: block;
-}
-.dropdown-content a:hover {
-    background-color: #555;
-}
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+
+/* Icono de carrito */
 .cart-icon {
     position: absolute;
     top: 170px; /* Ajusta según la altura de tu nav */
@@ -209,13 +288,8 @@ footer {
     padding: 2px 8px;
     font-size: 12px;
 }
- .material-symbols-outlined {
-     font-variation-settings:
-         'FILL' 0,
-         'wght' 400,
-         'GRAD' 0,
-         'opsz' 24
- }
+
+/* Estilos de la ventana emergente */
 .mensaje {
     display: none;
     position: fixed;
@@ -250,6 +324,6 @@ footer {
 .close-btn:hover {
     background-color: #0056b3;
 }
-strong{
+strong {
     color: red;
 }

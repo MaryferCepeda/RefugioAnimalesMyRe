@@ -134,6 +134,7 @@
       <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
       <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/vendor/mercadopago/dx-php" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -189,6 +190,29 @@
       <workItem from="1732678403689" duration="1000" />
       <workItem from="1732678519200" duration="182000" />
       <workItem from="1732678983604" duration="23000" />
+      <workItem from="1732682667575" duration="72000" />
+      <workItem from="1732684544390" duration="3113000" />
+      <workItem from="1732722652694" duration="36000" />
+      <workItem from="1732722956324" duration="1000" />
+      <workItem from="1732761710999" duration="652000" />
+      <workItem from="1732764128125" duration="1544000" />
+      <workItem from="1732804489505" duration="677000" />
+      <workItem from="1732806322629" duration="399000" />
+      <workItem from="1732808829463" duration="256000" />
+      <workItem from="1732811270804" duration="614000" />
+      <workItem from="1732812014444" duration="380000" />
+      <workItem from="1732814927218" duration="80000" />
+      <workItem from="1732819775686" duration="185000" />
+      <workItem from="1732843036768" duration="3718000" />
+      <workItem from="1732846818287" duration="24000" />
+      <workItem from="1732847305823" duration="3943000" />
+      <workItem from="1732851349359" duration="1222000" />
+      <workItem from="1732854202646" duration="7155000" />
+      <workItem from="1732861425177" duration="80000" />
+      <workItem from="1732879899328" duration="66000" />
+      <workItem from="1732886372633" duration="302000" />
+      <workItem from="1732889718885" duration="538000" />
+      <workItem from="1732891863281" duration="3741000" />
     </task>
     <servers />
   </component>

@@ -4,21 +4,22 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    color: white;
+    background-color: #f9f9f9;
 }
-
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #c97f3a;
+    background: linear-gradient(45deg, #FF8C00, #FF4500); /* Degradado con tonos más oscuros de naranja */
     color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    box-sizing: border-box; /* Asegura que el padding no afecte la altura total */
 }
 
 .header-Izquierda {
@@ -26,44 +27,16 @@ header {
     align-items: center;
 }
 
-.logo {
-    padding: 15px 0 10px 20px;
-    flex: 0 0 auto;
-    margin-right: 20px;
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    filter: brightness(80%);
-    transition: 0.5s ease;
+.header-Izquierda .logo {
+    width: 50px;
+    height: auto;
+    margin-right: 15px;
 }
 
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.header-Derecha {
-    display: flex;
-    gap: 15px;
-    position: absolute;
-    top: 10px;
-    right: 20px;
-}
-
-.header-Derecha a {
-    display: inline-block;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.header-Derecha img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1);
-}
-
-.header-Derecha a:hover img {
-    transform: scale(1.1);
-    opacity: 0.8;
+.header-Izquierda h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
 }
 
 nav {
@@ -71,6 +44,7 @@ nav {
     justify-content: flex-end;
     margin-right: 70px;
     flex-wrap: wrap;
+    align-items: center; /* Asegura que los elementos estén alineados verticalmente */
 }
 
 nav a {
@@ -86,31 +60,37 @@ nav a:hover {
     border-radius: 20px;
 }
 
-footer {
-    background-color: rgba(0, 0, 34, 0.7);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    width: 100%;
-    height: auto;
+.header-Derecha a {
+    margin-left: 10px;
+}
+
+.header-Derecha img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.header-Derecha img:hover {
+    transform: scale(1.1);
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
-    top: 12px;
+    top: 0; /* Asegura que el dropdown esté al mismo nivel que los otros elementos */
+    z-index: 2; /* Asegura que el menú esté sobre otros elementos */
 }
 
 .dropdown-content {
     border-radius: 15px;
-    top: 35px;
     padding: 15px;
     display: none;
     position: absolute;
-    background-color: #b16f31;
+    background: linear-gradient(45deg, #FF8C00, #FF4500);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    margin-top: 0; /* Asegura que no haya un espacio innecesario */
 }
 
 .dropdown-content a {
@@ -127,13 +107,15 @@ footer {
     display: block;
 }
 
+
+
 .Nosotros-Titulo {
     background-image: url("https://www.whiskas.com.mx/cdn-cgi/image/format=auto,q=90/sites/g/files/fnmzdf4861/files/2022-11/eduquer-son-Chaton-comment-bien-eduquer-son-Chaton.jpg");
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
     width: 100%;
-    min-height: 91vh;
+    min-height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,6 +127,8 @@ h1 {
 }
 
 h2 {
+    color: white;
+    font-family: 'Arial', sans-serif;
     z-index: 4;
     font-size: 3.7rem;
 }
@@ -164,34 +148,46 @@ h2 {
     box-sizing: border-box;
     font-size: 18px;
     background-color: #fff;
-    margin-bottom: 66px;
+    margin-bottom: 30px;
 }
 
 .Vision {
-    background-color: rgba(201, 127, 58, 0.8);
+    background-color: #ff9800; /* Orange */
 }
 
 .Mision {
-    background-color: rgba(58, 127, 201, 0.8);
+    background-color: #2196f3; /* DodgerBlue */
 }
 
+
 .Vision h4, .Mision h4 {
+    font-family: 'Arial', sans-serif;
     font-size: 34px;
     color: #fff;
 }
 
 .Vision .Vision-P, .Mision .Mision-P {
-    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
     line-height: 1.6;
     color: #fff;
     margin-top: 10px;
 }
+.Body2 {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
 
 .Refugio-Historia {
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin: 40px auto;
+    margin: 20px auto; /* Ajustado para reducir el margen superior e inferior */
     width: 80%;
     max-width: 1000px;
     box-shadow: 0 4px 8px rgba(28, 17, 9, 0.5);
@@ -199,7 +195,6 @@ h2 {
     background-color: #f8f4f1;
     border-radius: 10px;
     flex-direction: row;
-    margin-bottom: 150px;
 }
 
 .Refugio-Contenido {
@@ -209,15 +204,14 @@ h2 {
 }
 
 .Refugio-Historia h4 {
-    font-family: "Roboto Light", sans-serif;
-    color: black;
+    color: #ff9800;
     font-size: 29px;
     text-align: center;
     margin: 0 0 15px 0;
 }
 
 .Historia_Refugio_P {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Arial', sans-serif;
     color: #1c1109;
     font-size: 1.2rem;
     line-height: 1.5;
@@ -236,7 +230,7 @@ h2 {
 .RedesSociales {
     background-color: #ffffff;
     padding: 20px;
-    margin: 20px 0;
+    margin: 20px 0; /* Ajustado para reducir el margen superior e inferior */
     border-radius: 10px;
     text-align: center;
 }
@@ -270,6 +264,7 @@ hr {
     border: none;
     background-color: black;
 }
+
 
 .Tecnologias {
     text-align: center;
@@ -312,7 +307,38 @@ hr {
     opacity: 1;
     transform: translateY(0);
 }
+footer {
+    background: linear-gradient(45deg, #000000, #2f2f2f); /* Degradado de colores negros */
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    font-size: 1.2rem; /* Tamaño de fuente más grande */
+    z-index: 10;
+}
 
+footer p {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Fuente de texto */
+    font-weight: bold;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 5px;
+    background: #fff; /* Línea decorativa */
+    border-radius: 5px;
+}
+
+footer p span {
+    color: #ff9800; /* Color dorado para resaltar */
+}
 
 
 

@@ -1,6 +1,5 @@
-import React from 'react';
-import { Link} from '@inertiajs/inertia-react';
-import {Head} from "@inertiajs/react"
+import { Link } from '@inertiajs/inertia-react';
+import { Head } from "@inertiajs/react";
 import '../../css/productos.css';
 
 const Producto = ({ imgSrc, precio, descripcion, onAddToCart }) => (
@@ -16,18 +15,83 @@ const Producto = ({ imgSrc, precio, descripcion, onAddToCart }) => (
                 <p key={index}>{desc}</p>
             ))}
         </div>
-       <button className={"añadir"}> <span className="material-symbols-outlined">add_shopping_cart</span> </button>
+        <button className={"añadir"}> <span className="material-symbols-outlined">add_shopping_cart</span> </button>
     </div>
 );
 
-const PaginaRefugio = () => {
-    const productos = new Array(15).fill({
-        imgSrc: 'https://rosariopet.com.ar/wp-content/uploads/2022/07/PC11.jpg',
-        precio: '$10.00',
-        descripcion: [
-            'Este producto es de prueba se mejorara en la base de datos',
-        ],
-    });
+const PaginaRefugioProductos = () => {
+    const productos = [
+        {
+            imgSrc: '/Imagenes/productos/comida perro.webp',
+            precio: '$50.00',
+            descripcion: ['Comida para perro de alta calidad'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/Juguete interactivo para mascotas.jpg',
+            precio: '$150.00',
+            descripcion: ['Juguete interactivo para mascotas'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/Rascador Gatos.jpg',
+            precio: '$260.00',
+            descripcion: ['Rascador para gatos'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/Cama perro.webp',
+            precio: '$120.00',
+            descripcion: ['Cama para perros'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/hueso goma.webp',
+            precio: '$45.00',
+            descripcion: ['Hueso de goma para masticar'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/Comedor Gatos.26.56PM_1200x1200.webp',
+            precio: '$200.00',
+            descripcion: ['Comedero para gatos'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/Correa para perros.webp',
+            precio: '$1.00',
+            descripcion: ['Correa para perros'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/Peluche Gato.81cf211c767a487f2ca938fcee5d3703.webp',
+            precio: '$50.00',
+            descripcion: ['Juguete de peluche para gatos'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/cama Ortopedica Perros.jpeg',
+            precio: '$450.00',
+            descripcion: ['Cama ortopédica para perros'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/Arenero Gatos.webp',
+            precio: '$75.00',
+            descripcion: ['Arenero para gatos'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/manta perros.jpeg',
+            precio: '$24.00',
+            descripcion: ['Manta suave para perros'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/jaula perros.jpeg',
+            precio: '$122.00',
+            descripcion: ['Cage para perros pequeños'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/cama gatos.jpeg',
+            precio: '$130.00',
+            descripcion: ['Cama para gatos'],
+        },
+        {
+            imgSrc: '/Imagenes/productos/plato perro.jpeg',
+            precio: '$30.00',
+            descripcion: ['Plato para perros'],
+        },
+    ];
 
     const handleAddToCart = (nombre, precio) => {
         console.log(`Producto añadido: ${nombre} - ${precio}`);
@@ -91,30 +155,8 @@ const PaginaRefugio = () => {
             </header>
 
             <main>
-                <div id="mensaje" className="mensaje">
-                    <div className="mensaje-contenedor">
-                        <h2>Hola navegador! Veo que lograste encontrar nuestra página :3</h2>
-                        <p>
-                            Este mensaje es para informarte que{' '}
-                            <strong>
-                                ¡NO REALICES NINGÚN DONATIVO O COMPRA!
-                            </strong>{' '}
-                            ya que esta página está realizada específicamente para fines
-                            escolares y no queremos ir al bote.
-                        </p>
-                        <p>¡Muchas gracias por tu atención!</p>
-                        <button className="close-btn">Entendido</button>
-                    </div>
-                </div>
-
-                <div className="cart-icon">
-                    <i className="fas fa-shopping-cart"></i>
-                    <span className="cart-count" id="cart-count">0</span>
-                    <span className="material-symbols-outlined">shopping_cart</span>
-                </div>
-
                 <div className="productos_contenedor">
-                {productos.map((producto, index) => (
+                    {productos.map((producto, index) => (
                         <Producto
                             key={index}
                             imgSrc={producto.imgSrc}
@@ -134,4 +176,4 @@ const PaginaRefugio = () => {
     );
 };
 
-export default PaginaRefugio;
+export default PaginaRefugioProductos;

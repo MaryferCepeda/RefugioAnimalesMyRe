@@ -1,7 +1,7 @@
 /* Fondo general */
 .fondo-negro {
-    background-color: #121212;
-    color: #f5f5f5;
+    background-color: #F9F2E7;
+    color: black;
     padding: 2rem;
 }
 .logo {
@@ -26,58 +26,93 @@ body {
     flex-direction: column;
     min-height: 100vh;
     color: white;
+    background-color: #f9f9f9;
 }
-header{
+header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #c97f3a;
-    color: white;
+    background: #ffffff;
+    color: rgb(255, 152, 0);
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    box-sizing: border-box; /* Asegura que el padding no afecte la altura total */
 }
+
 .header-Izquierda {
     display: flex;
     align-items: center;
 }
+
+.header-Izquierda .logo {
+    width: 50px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.header-Izquierda h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
 nav {
     display: flex;
-    justify-content: flex-end; /* Alinea los enlaces a la derecha */
+    justify-content: flex-end;
     margin-right: 70px;
     flex-wrap: wrap;
+    align-items: center; /* Asegura que los elementos estén alineados verticalmente */
 }
 
 nav a {
-    color: white;
+    color: rgb(255, 152, 0);
     text-decoration: none;
     padding: 0.5rem 1rem;
     margin: 0.25rem;
-    font-size: 20px; /* Ajusta el tamaño de fuente */
+    font-size: 20px;
 }
 
 nav a:hover {
     background-color: #777;
     border-radius: 20px;
 }
+
+.header-Derecha a {
+    margin-left: 10px;
+}
+
+.header-Derecha img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.header-Derecha img:hover {
+    transform: scale(1.1);
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
-    top: 12px;
+    top: 0; /* Asegura que el dropdown esté al mismo nivel que los otros elementos */
+    z-index: 2; /* Asegura que el menú esté sobre otros elementos */
 }
+
 .dropdown-content {
     border-radius: 15px;
-    top: 35px;
     padding: 15px;
     display: none;
     position: absolute;
-    background-color: #b16f31;
+    background: linear-gradient(45deg, #FF8C00, #FF4500);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    margin-top: 0; /* Asegura que no haya un espacio innecesario */
 }
 
 .dropdown-content a {
@@ -93,35 +128,14 @@ nav a:hover {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-.header-Derecha {
-    display: flex;
-    gap: 15px; /* Espacio entre los íconos */
-    position: absolute;
-    top: 10px;
-    right: 20px;
-}
 
-.header-Derecha a {
-    display: inline-block;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
 
-.header-Derecha img {
-    width: 24px;
-    height: 24px;
-    filter: brightness(0) invert(1); /* Hace que el ícono sea blanco */
-}
-
-.header-Derecha a:hover img {
-    transform: scale(1.1);
-    opacity: 0.8;
-}
 main {
-    margin-top: 80px;
-    background-color: #000000;
-    color: white;
+    margin-top: 60px;
+    background-color: #F9F2E7;
+    color: black;
     flex: 1; /* Permite que main ocupe el espacio disponible */
-    width: 100%;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,14 +143,41 @@ main {
     padding: 2rem;
 }
 
+
 footer {
-    background-color: rgba(0, 0, 34, 0.7);
+    background: #ff9800;
     color: white;
     text-align: center;
-    padding: 1rem;
-    width: 100%;
-    height: auto;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    font-size: 1.2rem; /* Tamaño de fuente más grande */
+    z-index: 10;
 }
+
+footer p {
+    margin: 0;
+    font-family: 'Arial', sans-serif; /* Fuente de texto */
+    font-weight: bold;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 5px;
+    background: #fff; /* Línea decorativa */
+    border-radius: 5px;
+}
+
+footer p span {
+    color: #ffffff; /* Color dorado para resaltar */
+}
+
+
 
 
 /* Sección Historia */
@@ -145,7 +186,7 @@ footer {
     flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
-    background: #1e1e1e;
+    background: #F9F2E7;
     border-radius: 8px;
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -170,6 +211,7 @@ footer {
 
 /* Contenedor de descripción */
 .descripcion-container {
+    font-family: 'Arial', sans-serif;
     flex: 2 1 400px;
     text-align: left;
 }
@@ -184,7 +226,7 @@ footer {
     margin-bottom: 1rem;
     line-height: 1.6;
     font-size: 1rem;
-    color: #e0e0e0;
+    color: black;
 }
 
 /* Botón */
@@ -350,4 +392,50 @@ strong {
     .cta ul li {
         font-size: 1em;
     }
+}
+
+/* Estilo para el fondo borroso */
+.fondo-borroso {
+    filter: blur(5px);
+    pointer-events: none; /* Evita la interacción con el fondo */
+}
+
+/* Estilo del modal (ventana emergente) */
+.mensaje {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que quede por encima de todo */
+}
+
+.mensaje-contenedor {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.close-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color:#0056b3;
+
 }

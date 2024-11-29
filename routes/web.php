@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
@@ -42,12 +41,18 @@ Route::get('/Donar', function () {
 Route::get('/Nosotros', function () {
     return Inertia::render('Nosotros');
 });
-Route::get('/Productos', function () {
+
+Route::get('Productos', function () {
     return Inertia::render('Productos');
 });
-Route::get('/dashboard', function () {
+
+Route::get('/Contactanos',function (){
+    return Inertia::render('Contactanos');
+});
+
+Route::get('/Dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('Dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
