@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
 import { Link } from "@inertiajs/inertia-react";
 import { Head } from "@inertiajs/react";
+import { useEffect } from 'react';
 import "../../css/Diseño Movil/Nosotros_Movil.css";
 import "../../css/Nosotros.css";
 

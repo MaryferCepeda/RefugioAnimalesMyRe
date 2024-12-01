@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from "react";
 import { Link } from "@inertiajs/inertia-react";
 import { Head } from "@inertiajs/react";
+import { useEffect, useState } from "react";
 import "../../css/Donaciones.css";
-
-const MERCADO_PAGO_PUBLIC_KEY = "TEST-bfbe314b-07dd-46da-80aa-2af56f5511e3";
 
 function Donaciones() {
     const [indiceHistoria, setIndiceHistoria] = useState(0);
@@ -26,50 +24,48 @@ function Donaciones() {
     }, [historias.length]);
 
     useEffect(() => {
+        // Cargar el SDK de PayPal
         const script = document.createElement("script");
-        script.src = "https://sdk.mercadopago.com/js/v2";
+        script.src = "https://www.paypal.com/sdk/js?client-id=A&components=buttons&locale=es_ES"; 
         script.async = true;
-        document.body.appendChild(script);
-
         script.onload = () => {
-            window.mp = new window.MercadoPago(MERCADO_PAGO_PUBLIC_KEY, {
-                locale: "es-MX",
-            });
+            console.log("PayPal SDK cargado");
+
+            // Verificar si PayPal está disponible
+            if (window.paypal) {
+                window.paypal.Buttons({
+                    createOrder: function (data, actions) {
+                        return actions.order.create({
+                            purchase_units: [
+                                {
+                                    amount: {
+                                        value: amount || "10.00", 
+                                    },
+                                },
+                            ],
+                        });
+                    },
+                    onApprove: function (data, actions) {
+                        return actions.order.capture().then(function (details) {
+                            alert("Pago completado por " + details.payer.name.given_name);
+                        });
+                    },
+                }).render("#paypal-button"); 
+            }
         };
 
+        // Agregar el script al body
+        document.body.appendChild(script);
+
+        // Limpiar cuando el componente se desmonte
         return () => {
             document.body.removeChild(script);
         };
-    }, []);
+    }, [amount]); // Re-renderiza cada vez que el monto cambia
 
-    const handleDonate = async (e) => {
+    const handleDonate = (e) => {
         e.preventDefault();
-
-        try {
-            const response = await fetch("http://127.0.0.1:8000/create-preference", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-Token": document
-                        .querySelector('meta[name="csrf-token"]')
-                        .getAttribute("content"),
-                },
-                body: JSON.stringify({
-                    title: "Donación",
-                    description: "Ayuda para el refugio de mascotas",
-                    unit_price: parseFloat(amount),
-                }),
-            });
-
-            if (!response.ok) {
-                throw new Error("Error al crear la preferencia de pago");
-            }
-
-            const data = await response.json();
-            window.location.href = data.init_point; // Redirige al checkout de Mercado Pago
-        } catch (error) {
-            console.error("Error al crear la preferencia de pago:", error);
-        }
+        alert(`Donación de ${amount} recibida. ¡Gracias por tu apoyo!`);
     };
 
     return (
@@ -174,6 +170,9 @@ function Donaciones() {
                         />
                         <button type="submit">Donar</button>
                     </form>
+
+                    {/* Renderizar el botón de PayPal */}
+                    <div id="paypal-button"></div>
                 </div>
             </main>
 
@@ -185,4 +184,3 @@ function Donaciones() {
 }
 
 export default Donaciones;
-

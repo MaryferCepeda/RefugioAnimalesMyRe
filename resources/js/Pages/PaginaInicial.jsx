@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import '../../css/PaginaInicial.css';
 import { Link } from '@inertiajs/inertia-react';
 import { Head } from "@inertiajs/react";
+import { useState } from 'react';
+import '../../css/PaginaInicial.css';
 
 // Componente de ventana flotante
 
@@ -71,7 +71,7 @@ function PaginaInicial() {
                                 ¿Estás listo para darle una oportunidad?
                             </p>
                             <button className="btn-conocer">
-                                <a href="#">CONOCER MÁS</a>
+                            <Link href="/Donar">DONAR</Link>
                             </button>
                         </div>
                     </section>

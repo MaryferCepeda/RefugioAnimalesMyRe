@@ -6,12 +6,14 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "darryldecode/cart": "^4.2",
         "inertiajs/inertia-laravel": "^1.0",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
         "laravel/socialite": "^5.16",
         "laravel/tinker": "^2.9",
         "mercadopago/dx-php": "^3.0",
+        "srmklive/paypal": "*",
         "tightenco/ziggy": "^2.0"
     },
     "require-dev": {

@@ -6,6 +6,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
 header {
     position: fixed;
     top: 0;
@@ -107,33 +108,17 @@ nav a:hover {
     display: block;
 }
 
-
 .logo {
     flex: 0 0 auto;
     margin-right: 20px;
 }
-nav {
-    display: flex;
-    justify-content: flex-end; /* Alinea el contenido del nav a la derecha */
-    margin-right: 70px;
-    flex-wrap: wrap;
-}
-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    margin: 0.25rem;
-    font-size: 20px;
-}
-nav a:hover {
-    background-color: #777;
-    border-radius: 20px;
-}
+
 main {
     flex: 1;
     padding: 2rem;
     text-align: center;
 }
+
 footer {
     background: linear-gradient(45deg, #000000, #2f2f2f); /* Degradado de colores negros */
     color: white;
@@ -176,6 +161,7 @@ footer p span {
     filter: brightness(80%);
     transition: 0.5s ease;
 }
+
 .logo:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
 }
@@ -242,6 +228,7 @@ footer p span {
     margin-bottom: 10px;
     padding: 0 10px;
 }
+
 .cantidad input {
     width: 50px;
     text-align: center;
@@ -267,26 +254,37 @@ footer p span {
     background-color: #218838;
 }
 
-/* Icono de carrito */
-.cart-icon {
-    position: absolute;
-    top: 170px; /* Ajusta según la altura de tu nav */
-    right: 20px;
-    cursor: pointer;
+/* Asegúrate de que el contenedor del carrito tenga un margen superior adecuado */
+.carrito-contenedor {
     display: flex;
     align-items: center;
+    justify-content: center;  /* Centrado del icono y cantidad */
+    margin-top: 20px;  /* Espacio debajo del header */
+    position: fixed;
+    top: 80px; /* Asegúrate de que esté debajo del header */
+    right: 20px; /* Ajusta según el espacio deseado en el lado derecho */
+    background-color: #fff; /* Fondo blanco para que se vea bien */
+    border-radius: 50%; /* Forma circular si lo prefieres */
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para un efecto elevado */
+    z-index: 10; /* Asegura que esté sobre otros elementos */
+}
+
+.carrito-img {
+    width: 40px;  /* Ajusta según el tamaño del icono */
+    height: 40px;
+}
+
+.carrito-cantidad {
+    position: absolute;
+    top: -5px;  /* Asegura que esté arriba del carrito */
+    right: -5px;  /* Ajusta para que esté en la esquina */
+    background-color: red;
     color: white;
-}
-.cart-icon i {
-    font-size: 24px;
-    margin-right: 8px;
-}
-.cart-count {
-    background-color: #f00;
-    color: #fff;
+    font-size: 14px;
+    padding: 5px;
     border-radius: 50%;
-    padding: 2px 8px;
-    font-size: 12px;
+    font-weight: bold;
 }
 
 /* Estilos de la ventana emergente */
@@ -300,6 +298,7 @@ footer p span {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
+
 .mensaje-contenedor {
     background-color: white;
     margin: 15% auto;
@@ -309,6 +308,7 @@ footer p span {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
+
 .close-btn {
     background-color: #007BFF;
     color: white;
@@ -321,9 +321,48 @@ footer p span {
     transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .close-btn:hover {
     background-color: #0056b3;
 }
+
 strong {
     color: red;
+}
+/* Estilos para el popup del carrito */
+.popup-carrito {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+    border-radius: 8px;
+}
+
+.popup-carrito ul {
+    list-style: none;
+    padding: 0;
+}
+
+.popup-carrito li {
+    margin-bottom: 10px;
+}
+
+.popup-carrito button {
+    background-color: #f1f1f1;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.popup-carrito button:hover {
+    background-color: #e0e0e0;
 }

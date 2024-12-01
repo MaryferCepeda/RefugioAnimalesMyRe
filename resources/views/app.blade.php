@@ -20,5 +20,8 @@
 </head>
 <body class="font-sans antialiased">
 @inertia
+
+<script src="https://www.paypal.com/sdk/js?client-id=A=USD"></script>
+
 </body>
 </html>
